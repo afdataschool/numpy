@@ -19,7 +19,7 @@ It’s possible to do operations on arrays of different sizes. In some case NumP
 transform these arrays automatically so that they all have the same size: this conversion is
 called **broadcasting**.
 
-![numpy broadcasting in 2D](fig/numpy_broadcasting.png "numpy broadcasting in 2D")
+![numpy broadcasting in 2D]({{ page.root }}/fig/numpy_broadcasting.png "numpy broadcasting in 2D")
 
 Let's try to reproduce the above diagram. First, we create two one-dimensional arrays:
 
