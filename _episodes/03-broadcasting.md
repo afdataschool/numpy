@@ -186,6 +186,7 @@ distance = np.sqrt(x ** 2 + y ** 2)
 > ```
 > 
 > What might be the advantage of using `np.ogrid` over `np.mgrid`?
+{: .challenge}
 
 > ## Worked example: Route 66 
 >
