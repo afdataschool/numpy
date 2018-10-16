@@ -23,84 +23,74 @@ called **broadcasting**.
 
 Let's try to reproduce the above diagram. First, we create two one-dimensional arrays:
 
-```
->>> a = np.arange(4) * 10
->>> b = np.arange(3)
->>> a
-array([ 0, 10, 20, 30])
->>> b
-array([0, 1, 2])
-```
+~~~
+a = np.arange(4) * 10
+b = np.arange(3)
+~~~
+{: .language-python}
 
 We can tile them in 2D using `np.tile` function:
 
-```
->>> b2 = np.tile(b, (4, 1))
->>> b2
-array([[0, 1, 2],
-       [0, 1, 2],
-       [0, 1, 2],
-       [0, 1, 2]])
-```
+~~~
+b2 = np.tile(b, (4, 1))
+~~~
+{: .language-python}
 
 We do the same with the second array, but we need also to transpose (exchange columns with rows) the resulting array:
 
-```
->>> a2 = np.tile(a, (3, 1))
->>> a2 = a2.T
->>> a2
-array([[ 0,  0,  0],
-       [10, 10, 10],
-       [20, 20, 20],
-       [30, 30, 30]])
-```
+~~~
+a2 = np.tile(a, (3, 1))
+a2 = a2.T
+a2
+~~~
+{: .language-python}
 
 Note that the `np.tile` function creates new arrays and copies the data. Then you can add the arrays element-wise:
 
-```
->>> a2 + b2
-array([[ 0,  1,  2],
-       [10, 11, 12],
-       [20, 21, 22],
-       [30, 31, 32]])
-```
+~~~
+a2 + b2
+~~~
+{: .language-python}
 
 In the second example we add a one-dimensional array to a two-dimensional array. NumPy will automatically "tile" the 1D array along the missing direction:
 
-```
->>> a2 + b
+~~~
+a2 + b
 array([[ 0,  1,  2],
        [10, 11, 12],
        [20, 21, 22],
        [30, 31, 32]])
-```
+~~~
+{: .language-python}
 
 However, in this case no copy of `b` array is involved. NumPy will instead use the same data in `b` for each row of `a` -- we will cover the mechanism behind it at the end of the lesson. 
 
 In the third example we add a single column with a single vector. To obtain a column array from a 1D array we need to convert it to 2D array of four rows and one column. In NumPy we can add singular dimensions (dimensions of size 1) by a special object `np.newaxis`:
 
-```
->>> a.shape
+~~~
+a.shape
 (4,)
->>> a_column = a[:, np.newaxis]
->>> a_column.shape
+a_column = a[:, np.newaxis]
+a_column.shape
 (4, 1)
->>> a_column
+a_column
 array([[ 0],
        [10],
        [20],
        [30]])
-```
+~~~
+{: .language-python}
 
 We can add a column vector and a 1D array:
 
-```
->>> a_column + b
+~~~
+a_column + b
 array([[ 0,  1,  2],
        [10, 11, 12],
        [20, 21, 22],
        [30, 31, 32]])
-```
+~~~
+{: .language-python}
 
 This is the same as adding a column and  row vector:
 
