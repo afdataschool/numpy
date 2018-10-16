@@ -56,10 +56,7 @@ In the second example we add a one-dimensional array to a two-dimensional array.
 
 ~~~
 a2 + b
-array([[ 0,  1,  2],
-       [10, 11, 12],
-       [20, 21, 22],
-       [30, 31, 32]])
+
 ~~~
 {: .language-python}
 
@@ -69,15 +66,9 @@ In the third example we add a single column with a single vector. To obtain a co
 
 ~~~
 a.shape
-(4,)
 a_column = a[:, np.newaxis]
 a_column.shape
-(4, 1)
 a_column
-array([[ 0],
-       [10],
-       [20],
-       [30]])
 ~~~
 {: .language-python}
 
@@ -85,42 +76,35 @@ We can add a column vector and a 1D array:
 
 ~~~
 a_column + b
-array([[ 0,  1,  2],
-       [10, 11, 12],
-       [20, 21, 22],
-       [30, 31, 32]])
 ~~~
 {: .language-python}
 
 This is the same as adding a column and  row vector:
 
-```
->>> b_row = b[np.newaxis, :]
->>> b_row
-array([[0, 1, 2]])
->>> b_row.shape
-(1, 3)
->>> a_column + b_row
-array([[ 0,  1,  2],
-       [10, 11, 12],
-       [20, 21, 22],
-       [30, 31, 32]])
-```
+~~~
+b_row = b[np.newaxis, :]
+b_row
+b_row.shape
+a_column + b_row
 
-> ## Normalising data {.challenge}
+~~~
+{: .language-python}
+
+> ## Scaling data 
 >
 > Given the following array:
 >
-> ```
+> ~~~
 > a = np.random.rand(10, 100) 
-> ```
+> ~~~
+> {: .language-python}
 > 
 > For each column of `a` subtract its mean. Next, do the same with rows.
-
+{: .challenge}
 
 Broadcasting seems a bit magical, but it is actually quite natural to use it when we want to solve a problem whose output data is an array with more dimensions than input data. There a simple rule that allow to determine the validity of broadcasting and the shape of broadcasted arrays:
 
->  In order to broadcast, the size of the trailing axes for both arrays in an operation must either be the same or one of them must be one. 
+**In order to broadcast, the size of the trailing axes for both arrays in an operation must either be the same or one of them must be one.**
 
 This does indeed work for the three addition from the figure
 
@@ -150,13 +134,14 @@ B      (3d array):      7 x 1 x 5
 Result (4d array):  8 x 7 x 6 x 5
 ```
 
-> ## Broadcasting rules {.challenge}
+> ## Broadcasting rules 
 > 
 > Given the arrays:
-> ```
+> ~~~
 > X = np.random.rand(10,3)
 > Y = np.random.rand(3)
-> ```
+> ~~~
+> {: .language-python}
 > 
 > which of the following will *not* produce an error:
 > 
@@ -173,46 +158,19 @@ Result (4d array):  8 x 7 x 6 x 5
 > f) `X[:, np.newaxis, :] + Y`
 > 
 > What will be the shapes of the final broadcasted arrays? Try to guess and then check.
-
-> ## Three-dimensional broadcasting {.challenge}
->
-> Below, produce the array containing the sum of every element in `x` with every element in `y`
->
-> ```python
-> x = np.random.rand(3, 5)
-> y = np.random.randint(10, size=8)
-> z = x # FIX THIS
-> ```
-
-> ## Broadcasting indices {.challenge}
->
-> Predict and verify the shape of `y`:
-> 
-> ```python
-> x = np.empty((10, 8, 6))
-> 
-> idx0 = np.zeros((3, 8)).astype(int)
-> idx1 = np.zeros((3, 1)).astype(int)
-> idx2 = np.zeros((1, 1)).astype(int)
-> 
-> y = x[idx0, idx1, idx2]
-> ```
+{: .challenge}
 
 
-A lot of grid-based or network-based problems can also use broadcasting. For instance, if we want to compute the distance from the origin of points on a 10x10 grid, we can do
-```
->>> x = np.arange(5)
->>> y = np.arange(5)[:, np.newaxis]
->>> distance = np.sqrt(x ** 2 + y ** 2)
->>> distance
-array([[ 0.        ,  1.        ,  2.        ,  3.        ,  4.        ],
-       [ 1.        ,  1.41421356,  2.23606798,  3.16227766,  4.12310563],
-       [ 2.        ,  2.23606798,  2.82842712,  3.60555128,  4.47213595],
-       [ 3.        ,  3.16227766,  3.60555128,  4.24264069,  5.        ],
-       [ 4.        ,  4.12310563,  4.47213595,  5.        ,  5.65685425]])
-```
+A lot of grid-based or network-based problems also use broadcasting. For instance, if we want to compute the distance from the origin of points on a 10x10 grid, we can do
 
-> ## Creating a two-dimensional grid {.challenge}
+~~~
+x = np.arange(5)
+y = np.arange(5)[:, np.newaxis]
+distance = np.sqrt(x ** 2 + y ** 2)
+~~~
+{: .language-python}
+
+> ## Creating a two-dimensional grid 
 > 
 > What are the dimensionalities of `x`, `y` and `z` in the two cases:
 >
