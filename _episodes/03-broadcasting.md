@@ -207,7 +207,7 @@ distance = np.sqrt(x ** 2 + y ** 2)
 >        [1913, 1715, 1610, 1177, 1042,  738,  438,  369,    0,  535],
 >        [2448, 2250, 2145, 1712, 1577, 1273,  973,  904,  535,    0]])
 >```
-> ![Distances on Route 66](fig/route66.png)
+> ![Distances on Route 66]({{ page.root }}fig/route66.png)
 {: .callout}
 
 > ## Distances 
