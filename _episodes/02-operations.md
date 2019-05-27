@@ -3,14 +3,11 @@ title: "Operations on NumPy arrays"
 teaching: 15
 exercises: 15
 questions:
-- ""
 objectives:
-- "Explain how GitHub Pages produce web sites from Git repositories."
-- "Explain Jekyll's formatting rules."
-- "Explain the difference between element-wise and matrix product of two arrays"
 - "Apply reduction functions (mean, min, max) along a given axis"
 - "Find a specialised numerical algorithm from the ones available in numpy"
 - "Sort arrays along given axis"
+---
 
 Multiplication of two arrays is elementwise. For example, to calculate a square of each element we may use:
 
@@ -20,21 +17,6 @@ b = a * a
 ~~~
 {: .language-python}
 
-Matrix inner products are calculated using the `np.dot` function:
-
-~~~
-np.dot(a, a)
-5
-~~~
-{: .language-python}
-
-For 1-D arrays the same result can be obtained by:
-
-~~~
-np.sum(a * a)
-5
-~~~
-{: .language-python}
 
 
 ### Axis-based reductions
