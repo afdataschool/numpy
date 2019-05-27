@@ -3,7 +3,8 @@ title: Advanced NumPy
 subtitle: Array container
 minutes: 30
 ---
-> ## Learning Objectives {.objectives}
+
+> ## Learning Objectives 
 >
 > After the lesson learner:
 >
@@ -13,6 +14,7 @@ minutes: 30
 > * Can explain what are `ndim`, `shape` and `stride` properties of an array.
 > * Understand the layout of an array in memory and knows how to use it for best array performance.
 > * Can explain the difference between Fortran- and C-based order. Knows the default.
+{.objectives}
 
 ### Data type 
 
@@ -56,13 +58,14 @@ array([[1], [2, 3]], dtype=object)
 ```
 
 
-> ## Integer or real number? {.challenge}
+> ## Integer or real number? 
 >
 > Construct the array `x = np.array([0, 1, 2, 255], dtype=np.uint8)` (here, `uint8`
 > represents a single byte in memory, an unsigned integer between 0 and 255). Can
 > you explain the results obtained by x + 1 and x / 2? Also try `x.astype(float) + 1` and `x.astype(float) / 2`.
+{.challenge}
 
-> ## Data types {.challenge}
+> ## Data types 
 >
 > Try to guess the data type of the following arrays. Then test your prediction by  constructing the arrays and check their dtype attribute.
 >
@@ -75,8 +78,9 @@ array([[1], [2, 3]], dtype=object)
 > e = np.random.randn(5) > 0
 > f = np.arange(5)
 > ```
+{.challenge}
 
-> ## Complex data types {.challenge}
+> ## Complex data types 
 >
 > Imagine you have a list of names and scores, which you want to store in numpy array. Construct a dtype such that the following works. Look at documentation of `np.dtype`.
 >
@@ -84,6 +88,7 @@ array([[1], [2, 3]], dtype=object)
 > dtype = ?
 > np.array([('Bartosz', 5), ('Nelle', 4)], dtype=dtype)
 > ```
+{.challenge}
 
 ### Memory layout
 
