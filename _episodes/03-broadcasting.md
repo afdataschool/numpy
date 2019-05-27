@@ -10,7 +10,6 @@ objectives:
 - "explain why broadcasting is better than using for loops"
 - "understand the rules of broadcasting and can predict the shape of broadcasted arrays"
 - "control broadcasting using `np.newaxis` object"
-- "Explain overall organization of lesson files."
 keypoints:
 - ""
 ---
