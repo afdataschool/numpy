@@ -1,17 +1,8 @@
 ---
-source: Rmd
-title: "Using RMarkdown"
-teaching: 10
-exercises: 2
-questions:
-- "How to write a lesson using RMarkdown?"
-objectives:
-- "Explain how to use RMarkdown with the new lesson template."
-- "Demonstrate how to include pieces of code, figures, and challenges."
-keypoints:
-- "Edit the .Rmd files not the .md files"
-- "Run `make serve` to knit documents and preview lesson website locally"
+title: "Reading Data"
 ---
+
+
 ## Loading data into Python
 In order to load our inflammation data, we need to access
 ([import]({{ page.root }}/reference/#import) in Python terminology) a library called
